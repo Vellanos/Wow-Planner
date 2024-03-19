@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site avec vidéo en fond</title>
+    <title>Wow planner</title>
     <link rel="stylesheet" href="./public/style/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,14 +19,15 @@
             <source src="https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/m1/M1QEYAXEAWPX1699388765299.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
-        <div id="content">
+
+        <div class="text-container">
             <h1>Wow Planner</h1>
             <h2>Le meilleur outil du raider</h2>
             <p class="text-gold">Optimisez votre gameplay dans World of Warcraft avec notre application de gestion de roster ! Organisez facilement vos raids, attribuez les rôles et suivez les disponibilités de vos membres, le tout dans une interface conviviale.</p>
         </div>
-        <div class="d-flex justify-content-center row-gap-3">
-            <button id="SignIn" type="button" class="btn btn-lg">Inscription</button>
-            <button id="Login" type="button" class="btn btn-lg">Se connecter</button>
+        <div class="button-container">
+            <button id="SignIn">S'inscrire</button>
+            <button id="Login">Se connecter</button>
         </div>
     </div>
 </body>

@@ -1,121 +1,159 @@
 * {
-    font-family: "Kurale", serif;
-    font-weight: 400;
-    font-style: normal;
-  }  
+  font-family: "Kurale", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  position: absolute;
+  height: 60%;
+  width: 40%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+h1, h2 {
+  color: #000000;
+  font-size: 3rem !important;
+}
+
+.text-gold {
+  color: #f7b62c;
+  font-size: 1.7rem;
+}
+
+.button-container {
+  position: absolute;
+  height: 20%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  top: 75%;
+  left: 15%;
+}
+
+#SignIn {
+  border: 2px solid #ff0000;
+  background-color: #ff000059;
+  color: #dcb253;
+  font-weight: bold;
+  border-radius: 0%;
+  padding: 1% 5%;
+}
+
+#SignIn:hover {
+  background-color: #ff0000;
+  color: #dcb253;
+}
+
+#Login {
+  border: 2px solid #dcb253;
+  background-color: #00000060;
+  color: #dcb253;
+  font-weight: bold;
+  border-radius: 0%;
+  padding: 1% 5%;
+}
+
+#Login:hover {
+  background-color: #000000;
+  color: #dcb253;
+}
+
+@media only screen and (max-width: 950px) {
+  .text-container {
+    width: 60%;
   }
-  
-  #video-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+
+  h1, h2 {
+    font-size: 2.7rem !important;
   }
-  
-  #myVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  #SignIn, #Login {
+    padding: 2% 8%;
   }
-  
-  #content {
-    position: absolute;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .text-container {
+    height: 60%;
+    width: 70%;
     top: 10%;
-    left: 10%;
-    text-align: left;
-    color: white;
+    left: 15%;
+    margin-left: 0%;
+    margin-top: 0%;
   }
 
-  #content h1, h2 {
-    margin: 0;
-    font-size: 4rem;
-    color: #000000;
-  }
-  
   .text-gold {
-    color: #f1c566;
-    max-width: 50%;
-    font-size: 2.5rem;
+    font-size: 1.3rem;
   }
 
-  #SignIn {
+  .button-container {
     position: absolute;
-    top: 85%;
-    border: 1px solid #FF0000;
-    background-color: #ff000059;
-    color: #DCB253;
-    font-weight: bold;
-    border-radius: 0%;
-    width: 30dvh;
+    height: 20%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    top: 75%;
+    left: 15%;
   }
-
-  #SignIn:hover {
-    background-color: #FF0000;
-    color: #DCB253;
+  h1, h2 {
+    font-size: 2.5rem !important;
   }
-
-  #Login {
-    position: absolute;
-    top: 85%;
-    border: 1px solid #DCB253;
-    background-color: #00000060;
-    color: #DCB253;
-    font-weight: bold;
-    border-radius: 0%;
-    width: 30dvh;
+  .text-container {
+    text-align: center;
   }
+}
 
-  #Login:hover {
-    background-color: #000000;
-    color: #DCB253;
-  }
-
-  @media only screen and (max-width: 830px) {
-    #content {
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.8rem;
-      text-align: center;
-    }
+@media only screen and (max-width: 500px) {
   
-    .text-gold {
-      max-width: 100%;
-      font-size: 1.7rem;
-    }
-  }
-  
-  @media only screen and (max-width: 720px) {
-    #content {
-      top: 40%;
-      text-align: center;
-    }
-  
-    .text-gold {
-      max-width: 100%;
-    }
+  h1, h2 {
+    font-size: 2rem !important;
   }
 
-  @media only screen and (max-width: 520px) {
-    #content {
-      top: 30%;
-      text-align: center;
-    }
-  
-    .text-gold {
-      max-width: 100%;
-    }
-
-    p {
-        display: none;
-    }
+  #SignIn, #Login {
+    padding: 3% 10%;
   }
-  
+}
+@media only screen and (max-width: 260px) {
+  p {
+    display: none;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
