@@ -22,12 +22,13 @@
 
         <div class="text-container">
             <h1>Wow Planner</h1>
-            <h2>Le meilleur outil du raider</h2>
-            <p class="text-gold">Optimisez votre gameplay dans World of Warcraft avec notre application de gestion de roster ! Organisez facilement vos raids, attribuez les rôles et suivez les disponibilités de vos membres, le tout dans une interface conviviale.</p>
+            <h2>The raider's ultimate tool</h2>
+            <p class="text-gold">Optimize your gameplay in World of Warcraft with our roster management application! Easily organize your raids, assign roles, and track the availability of your members, all in a user-friendly interface.</p>
         </div>
+
         <div class="button-container">
-            <button id="SignIn">S'inscrire</button>
-            <button id="Login">Se connecter</button>
+            <a id="SignIn" href="./public/pages/SignIn.php">Sign in</a>
+            <a id="Login" href="./public/pages/Login.php">Login</a>
         </div>
     </div>
 </body>

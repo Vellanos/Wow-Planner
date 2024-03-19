@@ -12,6 +12,10 @@ html {
   overflow: hidden;
 }
 
+a {
+  
+}
+
 #video-container {
   position: relative;
   width: 100%;
@@ -61,29 +65,35 @@ h1, h2 {
 #SignIn {
   border: 2px solid #ff0000;
   background-color: #ff000059;
-  color: #dcb253;
-  font-weight: bold;
   border-radius: 0%;
   padding: 1% 5%;
+  text-decoration: none;
+  color: #f7b62c;
+  font-weight: bold;
+  text-align: center;
 }
 
 #SignIn:hover {
   background-color: #ff0000;
-  color: #dcb253;
+  color: #f7b62c;
+  cursor: pointer;
 }
 
 #Login {
   border: 2px solid #dcb253;
   background-color: #00000060;
-  color: #dcb253;
-  font-weight: bold;
   border-radius: 0%;
   padding: 1% 5%;
+  text-decoration: none;
+  color: #f7b62c;
+  font-weight: bold;
+  text-align: center;
 }
 
 #Login:hover {
   background-color: #000000;
-  color: #dcb253;
+  color: #f7b62c;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 950px) {
@@ -145,7 +155,7 @@ h1, h2 {
     padding: 3% 10%;
   }
 }
-@media only screen and (max-width: 260px) {
+@media only screen and (max-width: 280px) {
   p {
     display: none;
   }
@@ -155,5 +165,9 @@ h1, h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  #SignIn, #Login {
+    font-size: 0.8rem;
   }
 }
