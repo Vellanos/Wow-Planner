@@ -1,0 +1,121 @@
+* {
+    font-family: "Kurale", serif;
+    font-weight: 400;
+    font-style: normal;
+  }  
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  #video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #myVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #content {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    text-align: left;
+    color: white;
+  }
+
+  #content h1, h2 {
+    margin: 0;
+    font-size: 4rem;
+    color: #000000;
+  }
+  
+  .text-gold {
+    color: #f1c566;
+    max-width: 50%;
+    font-size: 2.5rem;
+  }
+
+  #SignIn {
+    position: absolute;
+    top: 85%;
+    border: 1px solid #FF0000;
+    background-color: #ff000059;
+    color: #DCB253;
+    font-weight: bold;
+    border-radius: 0%;
+    width: 30dvh;
+  }
+
+  #SignIn:hover {
+    background-color: #FF0000;
+    color: #DCB253;
+  }
+
+  #Login {
+    position: absolute;
+    top: 85%;
+    border: 1px solid #DCB253;
+    background-color: #00000060;
+    color: #DCB253;
+    font-weight: bold;
+    border-radius: 0%;
+    width: 30dvh;
+  }
+
+  #Login:hover {
+    background-color: #000000;
+    color: #DCB253;
+  }
+
+  @media only screen and (max-width: 830px) {
+    #content {
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem;
+      text-align: center;
+    }
+  
+    .text-gold {
+      max-width: 100%;
+      font-size: 1.7rem;
+    }
+  }
+  
+  @media only screen and (max-width: 720px) {
+    #content {
+      top: 40%;
+      text-align: center;
+    }
+  
+    .text-gold {
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 520px) {
+    #content {
+      top: 30%;
+      text-align: center;
+    }
+  
+    .text-gold {
+      max-width: 100%;
+    }
+
+    p {
+        display: none;
+    }
+  }
+  
