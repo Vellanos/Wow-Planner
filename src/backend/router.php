@@ -21,6 +21,9 @@ switch ($route) {
     case URL_AUTH_SignUp:
         $authController->index_SignUp();
         break;
+    case URL_AUTH_SignUp . "/treatment":
+        $authController->fSignUp();
+        break;
     default:
         $homeController->not_found_404();
         break;

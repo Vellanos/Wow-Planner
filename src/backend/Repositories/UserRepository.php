@@ -38,21 +38,20 @@ class UserRepository extends Db
     //     return $req->fetch();
     // }
 
-    // public function create($name, $surname, $birthdate, $email, $department_id)
-    // {
-    //     $query = 'INSERT INTO student (name, surname, birthdate, email, department_id) 
-    //     VALUES (:name, :surname, :birthdate, :email, :department_id)';
+    public function create($pseudo, $mail, $mdp, $guild)
+    {
+        $query = 'INSERT INTO User (pseudo, mail, mdp, guild) 
+        VALUES (:pseudo, :mail, :mdp, :guild)';
 
-    //     $req = $this->getDb()->prepare($query);
+        $req = $this->getDb()->prepare($query);
 
-    //     $req->execute([
-    //         'name' => $name,
-    //         'surname' => $surname,
-    //         'birthdate' => $birthdate,
-    //         'email' => $email,
-    //         'department_id' => $department_id,
-    //     ]);
-    // }
+        $req->execute([
+            'pseudo' => $pseudo,
+            'mail' => $mail,
+            'mdp' => $mdp,
+            'guild' => $guild,
+        ]);
+    }
 
     // public function delete($studentId)
     // {

@@ -1,0 +1,10 @@
+body {
+    background-image: url("../assets/404.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    overflow: hidden;
+    color: white !important;
+    font-weight: bold !important;
+  }

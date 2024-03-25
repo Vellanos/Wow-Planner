@@ -16,27 +16,23 @@
   <div class="container">
     <div class="row center-screen">
       <div class="col-md-4">
-        <form method="POST" action="../backend/treatment/treatmentSignUp.php" onsubmit="return submitForm()">
+        <form method="POST" action="<?php  echo URL_AUTH_SignUp?>/treatment" onsubmit="return submitForm()">
           <h2 class="mb-5 text-center">Sign Up</h2>
           <div class="form-group mb-4 text-center">
-            <input type="text" class="form-control" id="pseudo" placeholder="pseudo" required>
+            <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="pseudo" required>
             <small id="pseudoError" class="form-text text-danger "></small>
           </div>
           <div class="form-group mb-4 text-center">
-            <input type="text" class="form-control" id="guild" placeholder="guild's name">
+            <input type="text" name="guild" class="form-control" id="guild" placeholder="guild's name">
             <small id="guildError" class="form-text text-danger"></small>
           </div>
           <div class="form-group mb-4 text-center">
-            <input type="email" class="form-control" id="email" placeholder="email" required>
+            <input type="email" name="email" class="form-control" id="email" placeholder="email" required>
             <small id="emailError" class="form-text text-danger"></small>
           </div>
           <div class="form-group mb-4 text-center">
-            <input type="password" class="form-control" id="password" placeholder="password" required>
+            <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
             <small id="passwordError" class="form-text text-danger"></small>
-          </div>
-          <div class="form-group mb-4 text-center">
-            <input type="password" class="form-control" id="confirmPassword" placeholder="confirm password" required>
-            <small id="confirmPasswordError" class="form-text text-danger"></small>
           </div>
           <div class="text-center d-flex gap-3 justify-content-center">
             <a id="BackHome" href="../../index.php">Back Home</a>

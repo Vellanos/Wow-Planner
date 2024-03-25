@@ -3,7 +3,6 @@ function validateForm() {
   var guild = document.getElementById("guild").value;
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  var confirmPassword = document.getElementById("confirmPassword").value;
 
   var isValid = true;
 
@@ -12,7 +11,6 @@ function validateForm() {
   document.getElementById("guildError").innerHTML = "";
   document.getElementById("emailError").innerHTML = "";
   document.getElementById("passwordError").innerHTML = "";
-  document.getElementById("confirmPasswordError").innerHTML = "";
 
   // Validation pseudo
   if (pseudo.length < 3 || pseudo.length > 50) {
@@ -40,13 +38,6 @@ function validateForm() {
   if (password.length <= 7) {
     document.getElementById("passwordError").innerHTML =
       "Le password doit contenir plus de 7 caractères.";
-    isValid = false;
-  }
-
-  // Validation password
-  if (password != confirmPassword) {
-    document.getElementById("confirmPasswordError").innerHTML =
-      "Passwords not identical.";
     isValid = false;
   }
 
