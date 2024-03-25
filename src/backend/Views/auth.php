@@ -1,3 +1,15 @@
+<?php
+if (isset($message) && !empty($message)) {
+    if ($message == "SignUp") {
+        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_Profile . '">';
+    } else if ($message == 'Email') {
+        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_Login . '">';
+    } else if ($message == 'Error') {
+        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_SignUp . '">';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +25,13 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <?php
         if (isset($message) && !empty($message)) {
-            echo "<p> $message </p>";
+            if ($message == "SignUp") {
+                echo 'You are successfully registered. You will be redirected to your profile page!';
+            } else if ($message == 'Email') {
+                echo 'There is already a registered user with this email address. You will be redirected to the login page!';
+            } else if ($message == 'Error') {
+                echo 'Error processing the form. Please try again!';
+            }
         }
         ?>
     </div>

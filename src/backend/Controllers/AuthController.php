@@ -41,17 +41,17 @@ class AuthController
 
           $this->userRepository->create($pseudo,$email,$password_hash, $guild);
 
-          $message = 'You are successfully registered. You will be redirected to your profile page!';
+          $message = 'SignUp';
           echo $this->render('auth', ['message' => $message]);
           exit();
         } else {
-          $message = 'There is already a registered user with this email address. You will be redirected to the login page!';
+          $message = 'Email';
           echo $this->render('auth', ['message' => $message]);
           exit();
         }
       }
     } else {
-      $message = "Error processing the form. Please try again!";
+      $message = "Error";
       echo $this->render('auth', ['message' => $message]);
       exit();
     }
