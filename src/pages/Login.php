@@ -14,24 +14,28 @@
 
 <body>
   <div class="container">
-  <div class="row center-screen">
+  <div class="row center-screen text-center">
     <div class="col-md-4">
-      <form>
+      <form method="POST" action="../backend/treatment/treatmentSignUp.php" onsubmit="return submitForm()">
         <h2 class="mb-5 text-center">Login</h2> 
         <div class="form-group mb-4">
           <input type="email" class="form-control" id="email" placeholder="email">
+          <small id="emailError" class="form-text text-danger "></small>
         </div>
         <div class="form-group mb-4">
           <input type="password" class="form-control" id="password" placeholder="password">
+          <small id="passwordError" class="form-text text-danger"></small>
         </div>
         <div class="text-center">
-        <button id="Login" type="submit" class="btn btn-block">Login</button>
+        <a id="BackHome" href="../../index.php">Back Home</a>
+        <button id="Login" type="submit" class="btn btn-block" onclick="return validateForm()">Login</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 </div>
+    <script src="../script/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>

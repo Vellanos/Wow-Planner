@@ -27,8 +27,8 @@
         </div>
 
         <div class="button-container">
-            <a id="SignIn" href="./public/pages/SignIn.php">Sign in</a>
-            <a id="Login" href="./public/pages/Login.php">Login</a>
+            <a id="SignIn" href="./src/pages/SignUp.php">Sign up</a>
+            <a id="Login" href="./src/pages/Login.php">Login</a>
         </div>
     </div>
 </body>

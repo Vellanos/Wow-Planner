@@ -1,0 +1,27 @@
+@import url("./form.css");
+
+body {
+  background-image: url("../assets/Login.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#BackHome {
+  border: 2px solid #ff0000;
+  background-color: #ff000059;
+  border-radius: 0%;
+  padding: 1% 5%;
+  text-decoration: none;
+  color: #f7b62c;
+  font-weight: bold;
+  text-align: center;
+}
+
+#BackHome:hover {
+  background-color: #ff0000;
+  color: #f7b62c;
+  cursor: pointer;
+}
