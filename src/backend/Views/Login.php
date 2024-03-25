@@ -16,18 +16,18 @@
   <div class="container">
   <div class="row center-screen text-center">
     <div class="col-md-4">
-      <form method="POST" action="../backend/treatment/treatmentSignUp.php" onsubmit="return submitForm()">
+      <form method="POST" action="<?php  echo URL_AUTH_Login?>/treatment" onsubmit="return submitForm()">
         <h2 class="mb-5 text-center">Login</h2> 
         <div class="form-group mb-4">
-          <input type="email" class="form-control" id="email" placeholder="email">
+          <input type="email" name="email" class="form-control" id="email" placeholder="email">
           <small id="emailError" class="form-text text-danger "></small>
         </div>
         <div class="form-group mb-4">
-          <input type="password" class="form-control" id="password" placeholder="password">
+          <input type="password" name="password" class="form-control" id="password" placeholder="password">
           <small id="passwordError" class="form-text text-danger"></small>
         </div>
         <div class="text-center">
-        <a id="BackHome" href="../../index.php">Back Home</a>
+        <a id="BackHome" href=<?php  echo URL_HOMEPAGE?>>Back Home</a>
         <button id="Login" type="submit" class="btn btn-block" onclick="return validateForm()">Login</button>
         </div>
       </form>

@@ -35,7 +35,7 @@
             <small id="passwordError" class="form-text text-danger"></small>
           </div>
           <div class="text-center d-flex gap-3 justify-content-center">
-            <a id="BackHome" href="../../index.php">Back Home</a>
+            <a id="BackHome" href=<?php  echo URL_HOMEPAGE?>>Back Home</a>
             <button id="Login" type="submit" class="btn btn-block" onclick="return validateForm()">Sign Up</button>
           </div>
         </form>

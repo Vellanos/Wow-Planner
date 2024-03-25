@@ -20,6 +20,9 @@ switch ($route) {
     case URL_AUTH_Login:
         $authController->index_Login();
         break;
+    case URL_AUTH_Login . "/treatment":
+        $authController->fLogin();
+        break;
     case URL_AUTH_SignUp:
         $authController->index_SignUp();
         break;

@@ -56,4 +56,51 @@ class AuthController
       exit();
     }
   }
+
+  public function fLogin()
+  {
+    if (isset($_POST) && !empty($_POST)) {
+
+      if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])) {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+
+        $user = $this->userRepository->findByEmail($email);
+        if (!$user) {
+          $message = "InvalidEmail";
+          echo $this->render('auth', ['message' => $message]);
+          exit();
+        }
+
+        $password_hash = $user->getMdp();
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+          session_start();
+        }
+
+        if (password_verify($password, $password_hash)) {
+          $_SESSION['authenticated_user'] = $user->getMail();
+          $message = 'Login';
+          echo $this->render('auth', ['message' => $message ]);
+          exit();
+
+        } else {
+          $_SESSION['authenticated_user'] = null;
+          $message = 'ErrorLogin';
+          echo $this->render('auth', ['message' => $message]);
+          exit();
+
+        }
+      } else {
+        $message = "ErrorFormLogin";
+        echo $this->render('auth', ['message' => $message]);
+        exit();
+        
+      }
+    } else {
+      $message = "ErrorFormLogin";
+      echo $this->render('auth', ['message' => $message]);
+      exit();
+    }
+  }
 }

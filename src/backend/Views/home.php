@@ -1,5 +1,5 @@
 <?php 
-// var_dump(r)
+session_destroy();
 ?>
 
 <!DOCTYPE html>
