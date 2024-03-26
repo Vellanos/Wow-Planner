@@ -30,6 +30,7 @@ switch ($route) {
         $authController->fSignUp();
         break;
     case URL_AUTH_Profile:
+        $profileController->isLogged();
         $profileController->index();
         break;
     default:

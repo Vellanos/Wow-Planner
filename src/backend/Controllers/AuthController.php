@@ -42,6 +42,7 @@ class AuthController
           $this->userRepository->create($pseudo,$email,$password_hash, $guild);
 
           $message = 'SignUp';
+          $_SESSION['authenticated_user'] = $email;
           echo $this->render('auth', ['message' => $message]);
           exit();
         } else {

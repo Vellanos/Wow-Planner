@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wow Planner</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/style/profile.css">
 </head>
 <body>
-    <h1>PROFILE</h1>
+
+<div class="container">
+    <div class="card-wrapper">
+        <!-- Carte 1 -->
+        <div class="card">
+            <!-- Contenu de la carte -->
+        </div>
+        <!-- Carte 2 -->
+        <div class="card">
+            <!-- Contenu de la carte -->
+        </div>
+        <!-- Carte 3 -->
+        <div class="card">
+            <!-- Contenu de la carte -->
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (optionnel, pour certaines fonctionnalités) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
