@@ -2,21 +2,59 @@
     INSERT INTO User (pseudo, mail, mdp, guild) VALUES
     ('Vellanos', 'davidbak38@gmail.com', '$2y$10$KpsZXf4RaWksrClxHlEJweaZSiGBvJs4ds6U5qR/XrDa3yj6aT80i','Odd Manner');
 
-    -- Insérer des classes de World of Warcraft
-    INSERT INTO Classe (nom, couleur, icone) VALUES
-    ('Warrior', 'C79C6E', 'warrior_icon.png'),
-    ('Paladin', 'F58CBA', 'paladin_icon.png'),
-    ('Hunter', 'ABD473', 'hunter_icon.png'),
-    ('Rogue', 'FFF569', 'rogue_icon.png'),
-    ('Priest', 'FFFFFF', 'priest_icon.png'),
-    ('Death Knight', 'C41F3B', 'deathknight_icon.png'),
-    ('Shaman', '0070DE', 'shaman_icon.png'),
-    ('Mage', '69CCF0', 'mage_icon.png'),
-    ('Warlock', '9482C9', 'warlock_icon.png'),
-    ('Monk', '00FF96', 'monk_icon.png'),
-    ('Demon Hunter', 'A330C9', 'demonhunter_icon.png'),
-    ('Druid', 'FF7D0A', 'druid_icon.png'),  
-    ('Evoker', '33937F', 'icone_evoker.png');
+   INSERT INTO Classe (name_class, name_spec, role, couleur, icone) VALUES
+('Warrior', 'Arms', 'DPS', 'C79C6E', 'war.png'),
+('Warrior', 'Fury', 'DPS', 'C79C6E', 'war.png'),
+('Warrior', 'Protection', 'Tank', 'C79C6E', 'war.png'),
+
+('Paladin', 'Holy', 'Heal', 'F58CBA', 'paladin.png'),
+('Paladin', 'Protection', 'Tank', 'F58CBA', 'paladin.png'),
+('Paladin', 'Retribution', 'DPS', 'F58CBA', 'paladin.png'),
+
+('Hunter', 'Beast Mastery', 'DPS', 'ABD473', 'hunter.png'),
+('Hunter', 'Marksmanship', 'DPS', 'ABD473', 'hunter.png'),
+('Hunter', 'Survival', 'DPS', 'ABD473', 'hunter.png'),
+
+('Rogue', 'Assassination', 'DPS', 'FFF569', 'rogue.png'),
+('Rogue', 'Outlaw', 'DPS', 'FFF569', 'rogue.png'),
+('Rogue', 'Subtlety', 'DPS', 'FFF569', 'rogue.png'),
+
+('Priest', 'Discipline', 'Heal', 'FFFFFF', 'priest.png'),
+('Priest', 'Holy', 'Heal', 'FFFFFF', 'priest.png'),
+('Priest', 'Shadow', 'DPS', 'FFFFFF', 'priest.png'),
+
+('Death Knight', 'Blood', 'Tank', 'C41F3B', 'dk.png'),
+('Death Knight', 'Frost', 'DPS', 'C41F3B', 'dk.png'),
+('Death Knight', 'Unholy', 'DPS', 'C41F3B', 'dk.png'),
+
+('Shaman', 'Elemental', 'DPS', '0070DE', 'shaman.png'),
+('Shaman', 'Enhancement', 'DPS', '0070DE', 'shaman.png'),
+('Shaman', 'Restoration', 'Heal', '0070DE', 'shaman.png'),
+
+('Mage', 'Arcane', 'DPS', '69CCF0', 'mage.png'),
+('Mage', 'Fire', 'DPS', '69CCF0', 'mage.png'),
+('Mage', 'Frost', 'DPS', '69CCF0', 'mage.png'),
+
+('Warlock', 'Affliction', 'DPS', '9482C9', 'warlock.png'),
+('Warlock', 'Demonology', 'DPS', '9482C9', 'warlock.png'),
+('Warlock', 'Destruction', 'DPS', '9482C9', 'warlock.png'),
+
+('Monk', 'Brewmaster', 'Tank', '00FF96', 'monk.png'),
+('Monk', 'Mistweaver', 'Heal', '00FF96', 'monk.png'),
+('Monk', 'Windwalker', 'DPS', '00FF96', 'monk.png'),
+
+('Demon Hunter', 'Havoc', 'DPS', 'A330C9', 'dh.png'),
+('Demon Hunter', 'Vengeance', 'Tank', 'A330C9', 'dh.png'),
+
+('Druid', 'Balance', 'DPS', 'FF7D0A', 'druid.png'),
+('Druid', 'Feral', 'DPS', 'FF7D0A', 'druid.png'),
+('Druid', 'Guardian', 'Tank', 'FF7D0A', 'druid.png'),
+('Druid', 'Restoration', 'Heal', 'FF7D0A', 'druid.png'),
+
+('Evoker', 'Augmentation', 'DPS', '33937F', 'evoker.png'),
+('Evoker', 'Devastation', 'DPS', '33937F', 'evoker.png'),
+('Evoker', 'Preservation', 'Heal', '33937F', 'evoker.png');
+
 
     -- Insérer des versions de jeu
     INSERT INTO GameVersion (nom) VALUES
@@ -35,46 +73,6 @@
     ('Vault of the Incarnates', 3, 'Vault.png'),
     ('Aberrus', 3, 'Aberrus.png'),
     ('Amirdrassil', 3, 'Amirdrassil.png');
-
-    -- Insérer des spécialisations
-    INSERT INTO Specialisation (role, name, classe_id) VALUES
-    ('Tank', 'Protection', 1),
-    ('DPS', 'Fury', 1),
-    ('DPS', 'Arms', 1),
-    ('Tank', 'Protection', 2),
-    ('DPS', 'Holy', 2),
-    ('DPS', 'Retribution', 2),
-    ('DPS', 'Beast Mastery', 3),
-    ('DPS', 'Marksmanship', 3),
-    ('DPS', 'Survival', 3),
-    ('DPS', 'Assassination', 4),
-    ('DPS', 'Outlaw', 4),
-    ('DPS', 'Subtlety', 4),
-    ('Heal', 'Holy', 5),
-    ('Heal', 'Shadow', 5),
-    ('Tank', 'Blood', 6),
-    ('DPS', 'Frost', 6),
-    ('DPS', 'Unholy', 6),
-    ('Heal', 'Restoration', 7),
-    ('DPS', 'Elemental', 7),
-    ('DPS', 'Enhancement', 7),
-    ('DPS', 'Arcane', 8),
-    ('DPS', 'Fire', 8),
-    ('DPS', 'Frost', 8),
-    ('DPS', 'Affliction', 9),
-    ('DPS', 'Demonology', 9),
-    ('DPS', 'Destruction', 9),
-    ('Tank', 'Brewmaster', 10),
-    ('Heal', 'Mistweaver', 10),
-    ('DPS', 'Windwalker', 10),
-    ('Tank', 'Protection', 11),
-    ('DPS', 'Vengeance', 11),
-    ('Tank', 'Guardian', 12),
-    ('DPS', 'Balance', 12),
-    ('DPS', 'Feral', 12),
-    ('Heal', 'Preservation', 13),
-    ('DPS', 'Augmentation', 13),
-    ('DPS', 'Devastation', 13);
 
     -- Insérer des personnages associés aux utilisateurs
     INSERT INTO Personnage (nom, classe_id, user_id) VALUES
