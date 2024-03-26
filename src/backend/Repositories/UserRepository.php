@@ -3,15 +3,6 @@
 
 class UserRepository extends Db
 {
-    // public function getAll()
-    // {
-    //     $req = $this->getDb()->query('SELECT * FROM student');
-
-    //     $data = $req->fetchAll(PDO::FETCH_CLASS, Student::class);
-
-    //     return $data;
-    // }
-
     public function findByEmail($userEmail)
     {
         $req = $this->getDb()->prepare('SELECT * FROM User WHERE mail = :mail');
@@ -24,19 +15,6 @@ class UserRepository extends Db
 
         return $req->fetch();
     }
-
-    // public function findByName($studentName)
-    // {
-    //     $req = $this->getDb()->prepare('SELECT * FROM student WHERE name = :name');
-
-    //     $req->execute([
-    //         'name' => $studentName
-    //     ]);
-
-    //     $req->setFetchMode(PDO::FETCH_CLASS, Student::class);
-
-    //     return $req->fetch();
-    // }
 
     public function create($pseudo, $mail, $mdp, $guild)
     {
@@ -53,31 +31,22 @@ class UserRepository extends Db
         ]);
     }
 
-    // public function delete($studentId)
-    // {
-    //     $query = 'DELETE FROM student WHERE id = :id';
+    public function findNextEvents($userId)
+    {
+        $req = $this->getDb()->prepare("SELECT DATE_FORMAT(EventTable.date, '%d/%m/%Y') AS date,
+        DATE_FORMAT(EventTable.horaire, '%H:%i') AS horaire,
+        Raid.nom,
+        Raid.img
+        FROM EventTable
+        JOIN Raid ON EventTable.raid_id = Raid.id
+        WHERE EventTable.user_id = :id
+        ORDER BY EventTable.date, EventTable.horaire
+        LIMIT 3;");
 
-    //     $req = $this->getDb()->prepare($query);
+        $req->execute([
+            'id' => $userId
+        ]);
 
-    //     $req->execute([
-    //         'id' => $studentId
-    //     ]);
-    // }
-
-    // public function update($id, $name, $surname, $birthdate, $email, $department_id)
-    // {
-    //     $query = 'UPDATE student set name = :name, surname = :surname, birthdate = :birthdate
-    //     , email = :email, department_id = :department_id WHERE id = :id';
-
-    //     $req = $this->getDb()->prepare($query);
-
-    //     $req->execute([
-    //         'id' => $id,
-    //         'name' => $name,
-    //         'surname' => $surname,
-    //         'birthdate' => $birthdate,
-    //         'email' => $email,
-    //         'department_id' => $department_id,
-    //     ]);
-    // }
+        return $req->fetchAll();
+    }
 }

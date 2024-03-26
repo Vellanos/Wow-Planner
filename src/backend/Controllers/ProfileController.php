@@ -15,6 +15,11 @@ class ProfileController
 
   public function index()
   {
+    $email = $_SESSION['authenticated_user'];
+    $user = $this->userRepository->findByEmail($email);
+    $user_id = $user ->getId();
+    $nextEvents = $this->userRepository->findNextEvents($user_id);
+    $_SESSION['next_events'] = $nextEvents;
     echo $this->render('Profile');
   }
 
