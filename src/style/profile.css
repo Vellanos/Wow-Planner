@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   color: white;
   display: flex;
   align-items: center;
@@ -22,6 +22,14 @@ body {
   align-items: center;
   padding: 10px;
 }
+
+.card-data:not(.card-title, .card-text, .card-wrapper) {
+  background-color: rgba(0, 0, 0, 0.699);
+}
+
+.card-text, .card-title {
+}
+
 .card {
   border-radius: 90px;
   margin: 3%;
@@ -36,9 +44,70 @@ body {
 .card-body {
   color: white;
   font-size: 1.8rem !important;
-  text-shadow:
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+  font-weight: bolder;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0%;
+  gap: 4%;
+}
+
+.button-nav, .button-logout, .button-profile {
+  border-radius: 90px;
+  padding: 1% 5%;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-nav {
+  border: 2px solid #dcb253;
+  background-color: #262321;
+  color: white;
+}
+
+.button-logout {
+  border: 2px solid #FF0000;
+  background-color: rgba(255, 0, 0, 0.30);
+  color: #DCB253;
+}
+
+.button-profile {
+  border: 2px solid #079103;
+  background-color: #08910352;
+  color: #DCB253;
+}
+
+.button-nav:hover, .button-logout:hover, .button-profile:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button-nav:hover {
+  color: #dcb253;
+}
+
+.button-logout:hover,.button-profile:hover  {
+  color: white;
+}
+
+@media only screen and (max-width: 565px) {
+  .button-nav {
+    margin: 4%;
+  }
+  .button-logout {
+    margin: 4%;
+  }
+  .button-profile {
+    margin: 4%;
+  }
 }

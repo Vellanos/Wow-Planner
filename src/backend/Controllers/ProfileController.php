@@ -20,6 +20,8 @@ class ProfileController
     $user_id = $user ->getId();
     $nextEvents = $this->userRepository->findNextEvents($user_id);
     $_SESSION['next_events'] = $nextEvents;
+    $threeCharacters = $this->userRepository->findThreeCharacters($user_id);
+    $_SESSION['three_characters'] = $threeCharacters;
     echo $this->render('Profile');
   }
 
@@ -40,4 +42,12 @@ class ProfileController
       exit;
     }
   }
+
+  public function logout()
+  {
+    session_destroy();
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_HOMEPAGE . '">';
+    exit;
+  }
+    
 }

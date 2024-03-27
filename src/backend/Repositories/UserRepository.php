@@ -49,4 +49,20 @@ class UserRepository extends Db
 
         return $req->fetchAll();
     }
+
+    public function findThreeCharacters($userId)
+    {
+        $req = $this->getDb()->prepare("SELECT Personnage.nom, Classe.name_spec, Classe.icone 
+        FROM Personnage 
+        JOIN Classe ON Personnage.classe_id = Classe.id
+        WHERE Personnage.user_id = :id
+        ORDER BY Personnage.nom
+        LIMIT 3;");
+
+        $req->execute([
+            'id' => $userId
+        ]);
+
+        return $req->fetchAll();
+    }
 }

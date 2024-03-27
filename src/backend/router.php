@@ -33,6 +33,9 @@ switch ($route) {
         $profileController->isLogged();
         $profileController->index();
         break;
+    case URL_AUTH_Profile . "/logout":
+        $profileController->logout();
+        break;
     default:
         $homeController->not_found_404();
         break;
