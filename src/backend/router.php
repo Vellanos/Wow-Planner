@@ -36,6 +36,15 @@ switch ($route) {
     case URL_AUTH_Profile . "/logout":
         $profileController->logout();
         break;
+    case URL_AUTH_Profile . "/User":
+        $profileController->indexUser();
+        break;
+    case URL_AUTH_Profile . "/User/Edit":
+        $profileController->indexUserEdit();
+        break;
+    case URL_AUTH_Profile . "/User/Edit/treatment":
+        $profileController->edit();
+        break;
     default:
         $homeController->not_found_404();
         break;

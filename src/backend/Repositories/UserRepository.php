@@ -65,4 +65,19 @@ class UserRepository extends Db
 
         return $req->fetchAll();
     }
+
+    public function update($id, $pseudo, $mail,$mdp, $guild)
+    {
+        $query = 'UPDATE User set pseudo = :pseudo, mail = :mail,mdp = :mdp, guild = :guild WHERE id = :id';
+
+        $req = $this->getDb()->prepare($query);
+
+        $req->execute([
+            'id'=> $id,
+            'pseudo' => $pseudo,
+            'mail' => $mail,
+            'mdp' =>$mdp,
+            'guild' => $guild,
+        ]);
+    }
 }

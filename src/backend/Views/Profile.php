@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2 class="text-center">My Next Events</h2>
+    <h2 class="text-center section-title">My Next Events</h2>
     <div class="card-wrapper">
         <?php
         $nextEvents = $_SESSION['next_events'];
@@ -31,7 +31,7 @@
         <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>View All</a>
         <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>New One</a>
     </div>
-    <h2 class="text-center">My Characters</h2>
+    <h2 class="text-center section-title">My Characters</h2>
     <div class="card-wrapper">
         <?php
         $nextEvents = $_SESSION['three_characters'];
@@ -50,7 +50,7 @@
     </div>
     <div class="button-container">
         <a class="button-logout" href=<?php echo URL_AUTH_Profile . "/logout"?>>Logout</a>
-        <a class="button-profile" href=<?php echo URL_HOMEPAGE ?>>Profile</a>
+        <a class="button-profile" href=<?php echo URL_AUTH_Profile . "/User" ?>>Profile</a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
