@@ -21,23 +21,25 @@
             echo '<p class="text-center"> No character available at the moment. </p>';
         }
         foreach ($allCharacters as $character) : ?>
-            <div class="card card-data" style="background-image: url('../../src/assets/Class/<?php echo $character['icone']; ?>');">
-                <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
-                    <h3 class="card-title"><?php echo $character['nom']; ?></h3>
-                    <p class="card-text"><?php echo $character['name_spec']; ?></p>
+            <a href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=". $character['id']?>" class="card-link">
+                <div class="card card-data" style="background-image: url('../../src/assets/Class/<?php echo $character['icone']; ?>');">
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
+                        <h3 class="card-title"><?php echo $character['nom']; ?></h3>
+                        <p class="card-text"><?php echo $character['name_spec']; ?></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href=<?php echo URL_AUTH_Profile?>>BACK</a>
-        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters/Create" ?>>New One</a>
+        <a class="button-nav" href="<?php echo URL_AUTH_Profile; ?>">BACK</a>
+        <a class="button-nav" href="<?php echo URL_AUTH_Profile . "/Characters/Create"; ?>">New One</a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
+
 
 </html>

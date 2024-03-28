@@ -34,6 +34,14 @@ class PersonnageController
     echo $this->render('CreateCharacter');
   }
 
+  public function indexDetails($characterId)
+{
+        $character = $this->personnageRepository->findOneById($characterId);
+        $_SESSION['detailsCharacterId'] = null;
+        $_SESSION['detailsCharacter'] = $character;
+        echo $this->render('DetailsCharacter');
+}
+
   public function Create()
   {
     if (isset($_POST) && !empty($_POST)) {

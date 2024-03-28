@@ -42,20 +42,22 @@
             echo '<p class="text-center"> No character available at the moment. </p>';
         }
         foreach ($threeCharacters as $character) : ?>
-            <div class="card card-data" style="background-image: url('../src/assets/Class/<?php echo $character['icone']; ?>');">
-                <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
-                    <h3 class="card-title"><?php echo $character['nom']; ?></h3>
-                    <p class="card-text"><?php echo $character['name_spec']; ?></p>
+            <a href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $character['id']?>" class="card-link">
+                <div class="card card-data" style="background-image: url('../src/assets/Class/<?php echo $character['icone']; ?>');">
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
+                        <h3 class="card-title"><?php echo $character['nom']; ?></h3>
+                        <p class="card-text"><?php echo $character['name_spec']; ?></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters"?>>View All</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters" ?>>View All</a>
         <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters/Create"  ?>>New One</a>
     </div>
     <div class="button-container">
-        <a class="button-logout" href=<?php echo URL_AUTH_Profile . "/logout"?>>Logout</a>
+        <a class="button-logout" href=<?php echo URL_AUTH_Profile . "/logout" ?>>Logout</a>
         <a class="button-profile" href=<?php echo URL_AUTH_Profile . "/User" ?>>Profile</a>
     </div>
 

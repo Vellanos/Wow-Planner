@@ -15,6 +15,9 @@ $personnageController = new PersonnageController();
 // Récupère l'URI de la requête actuelle pour déterminer la route demandée par l'utilisateur.
 $route = $_SERVER['REQUEST_URI'];
 
+$uri = parse_url($route);
+$uri_path = $uri['path'];
+
 switch ($route) {
     case URL_HOMEPAGE:
         $homeController->index();
@@ -66,6 +69,12 @@ switch ($route) {
     case URL_AUTH_Profile . "/Characters/Create/treatment":
         $profileController->isLogged();
         $personnageController->Create();
+        break;
+    case str_contains($route, $uri_path):
+        $profileController->isLogged();
+        $uri_query = $uri['query'];
+        parse_str($uri_query, $output);
+        $personnageController->indexDetails($output['id']);
         break;
     default:
         $homeController->not_found_404();

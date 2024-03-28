@@ -5,7 +5,7 @@ class PersonnageRepository extends Db
 {
     public function findAll($user_id)
     {
-        $req = $this->getDb()->prepare('SELECT Personnage.nom, Classe.name_spec, Classe.icone 
+        $req = $this->getDb()->prepare('SELECT Personnage.id, Personnage.nom, Classe.name_spec, Classe.icone 
         FROM Personnage 
         JOIN Classe ON Personnage.classe_id = Classe.id
         WHERE Personnage.user_id = :user_id
@@ -16,6 +16,20 @@ class PersonnageRepository extends Db
         ]);
 
         return $req->fetchAll();
+    }
+
+    public function findOneById($personnage_id)
+    {
+        $req = $this->getDb()->prepare('SELECT Personnage.nom, Classe.name_class, Classe.name_spec, Classe.role, Classe.icone 
+        FROM Personnage 
+        JOIN Classe ON Personnage.classe_id = Classe.id
+        WHERE Personnage.id = :personnage_id');
+
+        $req->execute([
+            'personnage_id' => $personnage_id
+        ]);
+
+        return $req->fetch();
     }
 
     public function create($nom, $classe_id, $user_id)

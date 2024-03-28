@@ -52,7 +52,7 @@ class UserRepository extends Db
 
     public function findThreeCharacters($userId)
     {
-        $req = $this->getDb()->prepare("SELECT Personnage.nom, Classe.name_spec, Classe.icone 
+        $req = $this->getDb()->prepare("SELECT Personnage.id, Personnage.nom, Classe.name_spec, Classe.icone 
         FROM Personnage 
         JOIN Classe ON Personnage.classe_id = Classe.id
         WHERE Personnage.user_id = :id
