@@ -17,6 +17,9 @@
     <div class="card-wrapper">
         <?php
         $nextEvents = $_SESSION['next_events'];
+        if (empty($nextEvents)) {
+            echo '<p class="text-center"> No event scheduled at the moment </p>';
+        }
         foreach ($nextEvents as $event) : ?>
             <div class="card card-data" style="background-image: url('../src/assets/Raid/<?php echo $event['img']; ?>');">
                 <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
@@ -34,19 +37,22 @@
     <h2 class="text-center section-title">My Characters</h2>
     <div class="card-wrapper">
         <?php
-        $nextEvents = $_SESSION['three_characters'];
-        foreach ($nextEvents as $event) : ?>
-            <div class="card card-data" style="background-image: url('../src/assets/Class/<?php echo $event['icone']; ?>');">
+        $threeCharacters = $_SESSION['three_characters'];
+        if (empty($threeCharacters)) {
+            echo '<p class="text-center"> No character available at the moment. </p>';
+        }
+        foreach ($threeCharacters as $character) : ?>
+            <div class="card card-data" style="background-image: url('../src/assets/Class/<?php echo $character['icone']; ?>');">
                 <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
-                    <h3 class="card-title"><?php echo $event['nom']; ?></h3>
-                    <p class="card-text"><?php echo $event['name_spec']; ?></p>
+                    <h3 class="card-title"><?php echo $character['nom']; ?></h3>
+                    <p class="card-text"><?php echo $character['name_spec']; ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>View All</a>
-        <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>New One</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters"?>>View All</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Characters/Create"  ?>>New One</a>
     </div>
     <div class="button-container">
         <a class="button-logout" href=<?php echo URL_AUTH_Profile . "/logout"?>>Logout</a>

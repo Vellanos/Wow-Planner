@@ -61,7 +61,7 @@ class ProfileController
     exit;
   }
 
-  public function edit()
+  public function editProfile()
   {
     if (isset($_POST) && !empty($_POST)) {
       $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -93,10 +93,10 @@ class ProfileController
     }
   }
 
-  public function delete() {
+  public function deleteProfile() {
     $user_id = $_SESSION['user']->getId();
     $this->userRepository->delete($user_id);
     session_destroy();
-    echo '<meta http-equiv="refresh" content="0;url=' . URL_HOMEPAGE . '">';
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_SignUp . '">';
   }
 }

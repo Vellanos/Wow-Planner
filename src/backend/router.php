@@ -4,11 +4,13 @@
 require __DIR__ . "/Controllers/HomeController.php";
 require __DIR__ . "/Controllers/AuthController.php";
 require __DIR__ . "/Controllers/ProfileController.php";
+require __DIR__ . "/Controllers/PersonnageController.php";
 
 // Crée des instances des contrôleurs.
 $homeController = new HomeController();
 $authController = new AuthController();
 $profileController = new ProfileController();
+$personnageController = new PersonnageController();
 
 // Récupère l'URI de la requête actuelle pour déterminer la route demandée par l'utilisateur.
 $route = $_SERVER['REQUEST_URI'];
@@ -34,19 +36,36 @@ switch ($route) {
         $profileController->index();
         break;
     case URL_AUTH_Profile . "/logout":
+        $profileController->isLogged();
         $profileController->logout();
         break;
     case URL_AUTH_Profile . "/User":
+        $profileController->isLogged();
         $profileController->indexUser();
         break;
     case URL_AUTH_Profile . "/User/Edit":
+        $profileController->isLogged();
         $profileController->indexUserEdit();
         break;
     case URL_AUTH_Profile . "/User/Edit/treatment":
-        $profileController->edit();
+        $profileController->isLogged();
+        $profileController->editProfile();
         break;
     case URL_AUTH_Profile . "/User/Delete":
-        $profileController->delete();
+        $profileController->isLogged();
+        $profileController->deleteProfile();
+        break;
+    case URL_AUTH_Profile . "/Characters":
+        $profileController->isLogged();
+        $personnageController->index();
+        break;
+    case URL_AUTH_Profile . "/Characters/Create":
+        $profileController->isLogged();
+        $personnageController->indexCreate();
+        break;
+    case URL_AUTH_Profile . "/Characters/Create/treatment":
+        $profileController->isLogged();
+        $personnageController->Create();
         break;
     default:
         $homeController->not_found_404();

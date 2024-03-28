@@ -1,11 +1,11 @@
 <?php
 if (isset($message) && !empty($message)) {
     if ($message == "SignUp" || $message == "Login") {
-        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_Profile . '">';
+        echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_Profile . '">';
     } else if ($message == 'Email') {
-        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_Login . '">';
+        echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_Login . '">';
     } else if ($message == 'Error') {
-        echo '<meta http-equiv="refresh" content="5;url=' . URL_AUTH_SignUp . '">';
+        echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_SignUp . '">';
     } else if ($message == 'InvalidEmail') {
         echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_Login . '">';
     } else if ($message == 'ErrorLogin') {
