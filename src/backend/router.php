@@ -70,6 +70,18 @@ switch ($route) {
         $profileController->isLogged();
         $personnageController->Create();
         break;
+    case URL_AUTH_Profile . "/Characters/Edit":
+        $profileController->isLogged();
+        $personnageController->indexEdit();
+        break;
+    case URL_AUTH_Profile . "/Characters/Edit/treatment":
+        $profileController->isLogged();
+        $personnageController->editCharacter();
+        break;
+    case URL_AUTH_Profile . "/Characters/Delete":
+        $profileController->isLogged();
+        $personnageController->deleteCharacter();
+        break;
     case str_contains($route, $uri_path):
         $profileController->isLogged();
         $uri_query = $uri['query'];
