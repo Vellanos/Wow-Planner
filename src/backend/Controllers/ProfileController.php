@@ -92,4 +92,11 @@ class ProfileController
       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '">';
     }
   }
+
+  public function delete() {
+    $user_id = $_SESSION['user']->getId();
+    $this->userRepository->delete($user_id);
+    session_destroy();
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_HOMEPAGE . '">';
+  }
 }

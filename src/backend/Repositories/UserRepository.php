@@ -80,4 +80,26 @@ class UserRepository extends Db
             'guild' => $guild,
         ]);
     }
+
+    public function delete($id)
+    {
+        $query = 'DELETE FROM EventHasPerso
+        WHERE EventHasPerso.personnage_id IN (
+            SELECT Personnage.id
+            FROM Personnage
+            WHERE Personnage.user_id = :id
+        );
+        DELETE FROM Personnage
+                WHERE Personnage.user_id = :id;
+                DELETE FROM EventTable
+                WHERE EventTable.user_id = :id;
+                DELETE FROM `User`
+                WHERE id = :id;';
+
+        $req = $this->getDb()->prepare($query);
+
+        $req->execute([
+            'id'=> $id,
+        ]);
+    }
 }

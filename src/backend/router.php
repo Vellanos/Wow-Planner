@@ -45,6 +45,9 @@ switch ($route) {
     case URL_AUTH_Profile . "/User/Edit/treatment":
         $profileController->edit();
         break;
+    case URL_AUTH_Profile . "/User/Delete":
+        $profileController->delete();
+        break;
     default:
         $homeController->not_found_404();
         break;

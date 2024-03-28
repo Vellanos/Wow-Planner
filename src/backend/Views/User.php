@@ -29,6 +29,7 @@
         <?php endif; ?>
     </div>
     <div class="button-container">
+        <a class="button-gold" href=<?php echo URL_AUTH_Profile?>>Back</a>
         <a class="button-gold" href=<?php echo URL_AUTH_Profile . "/User/Edit"?>>Edit Profile</a>
         <a class="button-red" href=<?php echo URL_AUTH_Profile . "/User/Delete" ?>>Delete Profile</a>
     </div>
