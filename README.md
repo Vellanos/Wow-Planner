@@ -1,5 +1,9 @@
 # Wow-Planner
-## SCRIPT SQL
+## Base de données
+
+Pour se connecter à votre base de données : 
+
+    - Modifier le fichier config.php
 
 Pour créer la base de données : 
 
