@@ -1,5 +1,10 @@
 # Wow-Planner
-## Projet de Gestion de Réservations
+## SCRIPT SQL
+
+Pour créer la base de données : 
+
+    - Utiliser le fichier script.sql pour l'architecture de la bd
+    - Utiliser le fichier data.sql pour importer les données des Raids et des Classes.
 
 ## Contexte du projet
 Ce projet vous donne carte blanche pour créer une application de votre choix, tout en respectant le cahier des charges fourni.
