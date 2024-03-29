@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 print_r($_SESSION['detailsCharacter']);
 ?>
@@ -25,23 +25,25 @@ print_r($_SESSION['detailsCharacter']);
                 <form action="<?php echo URL_AUTH_Profile . "/Characters/Edit/treatment" ?>" method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['detailsCharacter']['nom']; ?>">
+                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['detailsCharacter']['nom']; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="classe">Class:</label>
-                    <select class="form-control" id="classe" name="classe">
-                        <option value="<?php echo $_SESSION['detailsCharacter']['class_id']; ?>"><?php echo $_SESSION['detailsCharacter']['name_class'] . ' ' . $_SESSION['detailsCharacter']['name_spec']; ?></option>
-                        <?php foreach ($_SESSION['allClass'] as $class) : ?>
-                            <option value="<?php echo $class['id']; ?>">
-                                <?php echo $class['name_class'] . ' ' . $class['name_spec']; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+                        <select class="form-control" id="classe" name="classe" required>
+                            <option value="<?php echo $_SESSION['detailsCharacter']['class_id']; ?>"><?php echo $_SESSION['detailsCharacter']['name_class'] . ' ' . $_SESSION['detailsCharacter']['name_spec']; ?></option>
+                            <?php foreach ($_SESSION['allClass'] as $class) : ?>
+                                <option value="<?php echo $class['id']; ?>">
+                                    <?php echo $class['name_class'] . ' ' . $class['name_spec']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                     <div class="button-container">
                         <button type="submit" class="button-gold">Edit</button>
                         <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id']; ?>">Cancel</a>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>

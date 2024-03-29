@@ -21,11 +21,11 @@
                 <form action="<?php echo URL_AUTH_Profile . "/Characters/Create/treatment" ?>" method="POST">
                     <div class="form-group">
                         <label for="nom">Nom:</label>
-                        <input type="text" class="form-control" id="nom" name="nom">
+                        <input type="text" class="form-control" id="nom" name="nom" required>
                     </div>
                     <div class="form-group">
                         <label for="Classe">Class:</label>
-                        <select class="form-control" id="Classe" name="Classe">
+                        <select class="form-control" id="Classe" name="Classe" required>
                             <option value="">Choose a class</option>
                             <?php foreach ($_SESSION['allClass'] as $class) : ?>
                                 <option value="<?php echo $class['id']; ?>">
@@ -39,8 +39,8 @@
                         <button type="submit" class="button-gold">Create</button>
                         <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters" ?>">Cancel</a>
                     </div>
-
                 </form>
+
 
             </div>
         </div>

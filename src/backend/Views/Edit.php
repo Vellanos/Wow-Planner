@@ -21,11 +21,11 @@
                 <form action="<?php echo URL_AUTH_Profile . "/User/Edit/treatment" ?>" method="POST">
                     <div class="form-group">
                         <label for="pseudo">Pseudo:</label>
-                        <input type="text" class="form-control" id="pseudo" name="pseudo" value="<?php echo $_SESSION['user']->getPseudo(); ?>">
+                        <input type="text" class="form-control" id="pseudo" name="pseudo" value="<?php echo $_SESSION['user']->getPseudo(); ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $_SESSION['user']->getMail(); ?>">
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $_SESSION['user']->getMail(); ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
@@ -39,8 +39,8 @@
                         <button type="submit" class="button-gold">Edit</button>
                         <a class="button-red" href="<?php echo URL_AUTH_Profile . "/User" ?>">Cancel</a>
                     </div>
-
                 </form>
+
 
             </div>
         </div>
