@@ -1,8 +1,3 @@
-<?php 
-
-print_r($_SESSION['detailsCharacter']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,28 +13,33 @@ print_r($_SESSION['detailsCharacter']);
 </head>
 
 <body>
-    <h2 class="text-center">Edit <?php echo $_SESSION['detailsCharacter']['nom']; ?></h2>
+    <h2 class="text-center">Edit Event</h2>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <form action="<?php echo URL_AUTH_Profile . "/Characters/Edit/treatment" ?>" method="POST">
+                <form action="<?php echo URL_AUTH_Profile . "/Events/Edit/treatment" ?>" method="POST">
                     <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $_SESSION['detailsCharacter']['nom']; ?>">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" name="date" value="<?php echo $_SESSION['detailsEvent']['date']; ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="classe">Class:</label>
-                    <select class="form-control" id="classe" name="classe">
-                        <option value="<?php echo $_SESSION['detailsCharacter']['class_id']; ?>"><?php echo $_SESSION['detailsCharacter']['name_class'] . ' ' . $_SESSION['detailsCharacter']['name_spec']; ?></option>
-                        <?php foreach ($_SESSION['allClass'] as $class) : ?>
-                            <option value="<?php echo $class['id']; ?>">
-                                <?php echo $class['name_class'] . ' ' . $class['name_spec']; ?>
+                        <label for="horaire">Time:</label>
+                        <input type="time" class="form-control" id="horaire" name="horaire" value="<?php echo $_SESSION['detailsEvent']['horaire']; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="raid">Raid:</label>
+                        <select class="form-control" id="raid" name="raid">
+                        <option value="<?php echo $_SESSION['detailsEvent']['raid_id']; ?>"><?php echo $_SESSION['detailsEvent']['nom']?></option>
+                        <?php foreach ($_SESSION['allRaids'] as $raid) : ?>
+                            <option value="<?php echo $raid['id']; ?>">
+                                <?php echo $raid['nom']?>
                             </option>
                         <?php endforeach; ?>
                     </select>
+                    </div>
                     <div class="button-container">
                         <button type="submit" class="button-gold">Edit</button>
-                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id']; ?>">Cancel</a>
+                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id']; ?>">Cancel</a>
                     </div>
                 </form>
             </div>

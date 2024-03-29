@@ -39,19 +39,19 @@ class EventController
     echo $this->render('CreateEvent');
   }
 
-//   public function indexDetails($characterId)
-//   {
-//     $character = $this->personnageRepository->findOneById($characterId);
-//     $_SESSION['detailsCharacter'] = $character;
-//     echo $this->render('DetailsCharacter');
-//   }
+  public function indexDetails($eventId)
+  {
+    $eventId = $this->eventRepository->findOneById($eventId);
+    $_SESSION['detailsEvent'] = $eventId;
+    echo $this->render('DetailsEvent');
+  }
 
-//   public function indexEdit()
-//   {
-//     $allClass = $this->classeRepository->findAll();
-//     $_SESSION['allClass'] = $allClass;
-//     echo $this->render('EditCharacter');
-//   }
+  public function indexEdit()
+  {
+    $allRaids = $this->eventRepository->findAllRaids();
+    $_SESSION['allRaids'] = $allRaids;
+    echo $this->render('EditEvent');
+  }
 
   public function Create()
   {
@@ -70,25 +70,26 @@ class EventController
     }
   }
 
-//   public function editCharacter()
-//   {
-//     if (isset($_POST) && !empty($_POST)) {
-//       $name = htmlspecialchars($_POST['name']);
-//       $classe = htmlspecialchars($_POST['classe']);
-//       $user_id = $_SESSION['user']->getId();
-//       $idCharacter = $_SESSION['detailsCharacter']['id'];
+  public function editEvent()
+  {
+    if (isset($_POST) && !empty($_POST)) {
+      $date = htmlspecialchars($_POST['date']);
+      $horaire = htmlspecialchars($_POST['horaire']);
+      $raid_id = htmlspecialchars($_POST['raid']);
+      $user_id = $_SESSION['user']->getId();
+      $idEvent = $_SESSION['detailsEvent']['id'];
 
-//       $this->personnageRepository->update($idCharacter, $name, $classe, $user_id);
+      $this->eventRepository->update($idEvent, $date, $horaire, $raid_id, $user_id);
 
-//       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Character/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
-//     } else {
-//       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Character/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
-//     }
-//   }
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id'] . '">';
+    } else {
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id'] . '">';
+    }
+  }
 
-//   public function deleteCharacter() {
-//     $idCharacter = $_SESSION['detailsCharacter']['id'];
-//     $this->personnageRepository->delete($idCharacter);
-//     echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Characters" . '">';
-//   }
+  public function deleteEvent() {
+    $eventId = $_SESSION['detailsEvent']['id'];
+    $this->eventRepository->delete($eventId);
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events" . '">';
+  }
 }

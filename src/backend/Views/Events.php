@@ -50,9 +50,6 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="button-container">
-            <a class="button-nav" href="<?php echo URL_AUTH_Profile; ?>">Back</a>
-        </div>
     <?php endif; ?>
 
 

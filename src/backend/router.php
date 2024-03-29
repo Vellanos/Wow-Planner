@@ -102,6 +102,24 @@ switch ($route) {
         $profileController->isLogged();
         $eventController->Create();
         break;
+    case URL_AUTH_Profile . "/Events/Edit":
+        $profileController->isLogged();
+        $eventController->indexEdit();
+        break;
+    case URL_AUTH_Profile . "/Events/Edit/treatment":
+        $profileController->isLogged();
+        $eventController->editEvent();
+        break;
+    case URL_AUTH_Profile . "/Events/Delete":
+        $profileController->isLogged();
+        $eventController->deleteEvent();
+        break;
+    case str_contains($route, $uri_path) && $uri_path === "/~david/brief_wow_planner/public/Profile/Events/Details":
+        $profileController->isLogged();
+        $uri_query = $uri['query'];
+        parse_str($uri_query, $output);
+        $eventController->indexDetails($output['id']);
+        break;
     default:
         $homeController->not_found_404();
         break;

@@ -20,7 +20,7 @@ class PersonnageRepository extends Db
 
     public function findOneById($personnage_id)
     {
-        $req = $this->getDb()->prepare('SELECT Personnage.id, Personnage.nom, Classe.name_class, Classe.name_spec, Classe.role, Classe.icone 
+        $req = $this->getDb()->prepare('SELECT Personnage.id, Personnage.nom, Classe.id AS class_id, Classe.name_class, Classe.name_spec, Classe.role, Classe.icone 
         FROM Personnage 
         JOIN Classe ON Personnage.classe_id = Classe.id
         WHERE Personnage.id = :personnage_id');

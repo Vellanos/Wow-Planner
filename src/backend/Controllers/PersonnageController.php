@@ -74,9 +74,9 @@ class PersonnageController
 
       $this->personnageRepository->update($idCharacter, $name, $classe, $user_id);
 
-      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Character/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
     } else {
-      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Character/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id'] . '">';
     }
   }
 
