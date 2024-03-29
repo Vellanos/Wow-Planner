@@ -32,6 +32,21 @@ class PersonnageRepository extends Db
         return $req->fetch();
     }
 
+    public function findHisCharacter($characterId, $user_id)
+    {
+        $req = $this->getDb()->prepare('SELECT * 
+        FROM Personnage
+        WHERE Personnage.id = :characterId
+        AND Personnage.user_id = :user_id');
+
+        $req->execute([
+            'characterId' => $characterId,
+            'user_id' => $user_id,
+        ]);
+
+        return $req->fetch();
+    }
+
     public function create($nom, $classe_id, $user_id)
     {
         $query = 'INSERT INTO Personnage (nom, classe_id, user_id) 

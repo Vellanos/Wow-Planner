@@ -38,7 +38,13 @@ class PersonnageController
   {
     $character = $this->personnageRepository->findOneById($characterId);
     $_SESSION['detailsCharacter'] = $character;
+    $user_id = $_SESSION['user']->getId();
+    $findHisCharacter = $this->personnageRepository->findHisCharacter($characterId, $user_id);
+    if (!empty($findHisCharacter)) {
     echo $this->render('DetailsCharacter');
+    } else {
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Characters">';
+    }
   }
 
   public function indexEdit()
