@@ -1,8 +1,3 @@
-<?php
-
-print_r($_SESSION['detailsCharacter']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +9,7 @@ print_r($_SESSION['detailsCharacter']);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../src/style/user.css">
+    <link rel="stylesheet" href="../../../src/style/edit.css">
 </head>
 
 <body>

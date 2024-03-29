@@ -3,6 +3,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: black;
 }
 
 h2 {
@@ -53,6 +54,10 @@ h2 {
 }
 
 .button-red:hover {
+  color: white;
+}
+
+.table {
   color: white;
 }
 
