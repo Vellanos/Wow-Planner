@@ -12,6 +12,8 @@ if (isset($message) && !empty($message)) {
         echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_Login . '">';
     } else if ($message == 'ErrorFormLogin') {
         echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_Login . '">';
+    } else if ($message == 'Password') {
+        echo '<meta http-equiv="refresh" content="3;url=' . URL_AUTH_SignUp . '">';
     } 
 }
 ?>
@@ -43,6 +45,8 @@ if (isset($message) && !empty($message)) {
                 echo 'No account is associated with this email. Please try again!';
             } else if ($message == 'ErrorLogin') {
                 echo 'Invalid credentials';
+            } else if ($message == 'Password') {
+                echo 'The passwords are not identical.';
             }
         }
         ?>

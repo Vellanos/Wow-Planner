@@ -66,8 +66,9 @@ class ProfileController
     if (isset($_POST) && !empty($_POST)) {
       $pseudo = htmlspecialchars($_POST['pseudo']);
       $email = htmlspecialchars($_POST['email']);
-      $password = htmlspecialchars($_POST['password']);
       $guild = htmlspecialchars($_POST['guild']);
+      $password = htmlspecialchars($_POST['password']);
+      $Confirmpassword = htmlspecialchars($_POST['Confirmpassword']);
 
       $oldEmail = $_SESSION['user']->getMail();
       $user_id = $_SESSION['user']->getId();
@@ -76,6 +77,8 @@ class ProfileController
         $password_hashed = $_SESSION['user']->getMdp();
       } else if (strlen($password) <= 7) {
         $password_hashed = $_SESSION['user']->getMdp();
+      } else if ($password !== $Confirmpassword) {
+        $password_hashed = $_SESSION['user']->getMdp(); // A MODIFIER AVEC PAGE D'ERREUR
       } else {
         $password_hashed = password_hash($password, PASSWORD_DEFAULT);
       }
@@ -93,7 +96,8 @@ class ProfileController
     }
   }
 
-  public function deleteProfile() {
+  public function deleteProfile()
+  {
     $user_id = $_SESSION['user']->getId();
     $this->userRepository->delete($user_id);
     session_destroy();

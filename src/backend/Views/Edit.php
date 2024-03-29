@@ -28,13 +28,18 @@
                         <input type="email" class="form-control" id="email" name="email" value="<?php echo $_SESSION['user']->getMail(); ?>" required>
                     </div>
                     <div class="form-group">
+                        <label for="guild">Guild:</label>
+                        <input type="text" class="form-control" id="guild" name="guild" value="<?php echo $_SESSION['user']->getGuild(); ?>">
+                    </div>
+                    <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="form-group">
-                        <label for="guild">Guild:</label>
-                        <input type="text" class="form-control" id="guild" name="guild" value="<?php echo $_SESSION['user']->getGuild(); ?>">
+                        <label for="Confirmpassword">Confirm password:</label>
+                        <input type="password" class="form-control" id="Confirmpassword" name="Confirmpassword">
                     </div>
+                    
                     <div class="button-container">
                         <button type="submit" class="button-gold">Edit</button>
                         <a class="button-red" href="<?php echo URL_AUTH_Profile . "/User" ?>">Cancel</a>

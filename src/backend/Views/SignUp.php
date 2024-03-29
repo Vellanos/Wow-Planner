@@ -34,7 +34,11 @@
             <input type="password" name="password" class="form-control" id="password" placeholder="password" required>
             <small id="passwordError" class="form-text text-danger"></small>
           </div>
-          <div class="text-center d-flex gap-3 justify-content-center">
+          <div class="form-group mb-4 text-center">
+            <input type="password" name="Confirmpassword" class="form-control" id="Confirmpassword" placeholder="confirm password" required>
+            <small id="ConfirmpasswordError" class="form-text text-danger"></small>
+          </div>
+          <div class="text-center d-flex gap-3 justify-content-center"> 
             <a id="BackHome" href=<?php  echo URL_HOMEPAGE?>>Back Home</a>
             <button id="Login" type="submit" class="btn btn-block" onclick="return validateForm()">Sign Up</button>
           </div>

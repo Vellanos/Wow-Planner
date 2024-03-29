@@ -17,7 +17,7 @@ class AuthController
   {
     echo $this->render('Login');
   }
-  
+
   public function index_SignUp()
   {
     echo $this->render('SignUp');
@@ -33,20 +33,27 @@ class AuthController
         $guild = htmlspecialchars($_POST['guild']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
+        $confirmPassword = htmlspecialchars($_POST['Confirmpassword']);
 
-        $user = $this->userRepository->findByEmail($email);
+        if ($password === $confirmPassword) {
+          $user = $this->userRepository->findByEmail($email);
 
-        if (!$user) {
-          $password_hash = password_hash($password, PASSWORD_DEFAULT);
+          if (!$user) {
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-          $this->userRepository->create($pseudo,$email,$password_hash, $guild);
+            $this->userRepository->create($pseudo, $email, $password_hash, $guild);
 
-          $message = 'SignUp';
-          $_SESSION['authenticated_user'] = $email;
-          echo $this->render('auth', ['message' => $message]);
-          exit();
+            $message = 'SignUp';
+            $_SESSION['authenticated_user'] = $email;
+            echo $this->render('auth', ['message' => $message]);
+            exit();
+          } else {
+            $message = 'Email';
+            echo $this->render('auth', ['message' => $message]);
+            exit();
+          }
         } else {
-          $message = 'Email';
+          $message = "Password";
           echo $this->render('auth', ['message' => $message]);
           exit();
         }
@@ -82,21 +89,18 @@ class AuthController
         if (password_verify($password, $password_hash)) {
           $_SESSION['authenticated_user'] = $user->getMail();
           $message = 'Login';
-          echo $this->render('auth', ['message' => $message ]);
+          echo $this->render('auth', ['message' => $message]);
           exit();
-
         } else {
           $_SESSION['authenticated_user'] = null;
           $message = 'ErrorLogin';
           echo $this->render('auth', ['message' => $message]);
           exit();
-
         }
       } else {
         $message = "ErrorFormLogin";
         echo $this->render('auth', ['message' => $message]);
         exit();
-        
       }
     } else {
       $message = "ErrorFormLogin";
