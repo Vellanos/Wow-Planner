@@ -120,6 +120,18 @@ switch ($route) {
         parse_str($uri_query, $output);
         $eventController->indexDetails($output['id']);
         break;
+    case str_contains($route, $uri_path) && $uri_path === "/~david/brief_wow_planner/public/Profile/Events/Details/Register":
+        $profileController->isLogged();
+        $uri_query = $uri['query'];
+        parse_str($uri_query, $output);
+        $eventController->register($output['char']);
+        break;
+    case str_contains($route, $uri_path) && $uri_path === "/~david/brief_wow_planner/public/Profile/Events/Details/NoRegister":
+        $profileController->isLogged();
+        $uri_query = $uri['query'];
+        parse_str($uri_query, $output);
+        $eventController->deleteRegisterCharacter($output['char']);
+        break;
     default:
         $homeController->not_found_404();
         break;

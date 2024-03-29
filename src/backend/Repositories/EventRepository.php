@@ -87,6 +87,59 @@ class EventRepository extends Db
         return $req->fetch();
     }
 
+    public function findRegisteredCharacters($eventId, $user_id) {
+        $req = $this->getDb()->prepare('SELECT * 
+        FROM Personnage
+        WHERE Personnage.user_id = :user_id
+        AND Personnage.id IN (SELECT EventHasPerso.personnage_id FROM EventHasPerso WHERE EventHasPerso.event_id = :eventId)');
+
+        $req->execute([
+            'user_id' => $user_id,
+            'eventId' => $eventId
+        ]);
+
+        return $req->fetchAll();
+    }
+
+    public function findNoRegisteredCharacters($eventId, $user_id) {
+        $req = $this->getDb()->prepare('SELECT * 
+        FROM Personnage
+        WHERE Personnage.user_id = :user_id
+        AND Personnage.id NOT IN (SELECT EventHasPerso.personnage_id FROM EventHasPerso WHERE EventHasPerso.event_id = :eventId)');
+
+        $req->execute([
+            'user_id' => $user_id,
+            'eventId' => $eventId
+        ]);
+
+        return $req->fetchAll();
+    }
+
+    public function registerCharacter($characterId, $eventId) {
+        $query = 'INSERT INTO EventHasPerso (personnage_id, event_id) 
+        VALUES (:characterId, :eventId)';
+
+        $req = $this->getDb()->prepare($query);
+
+        $req->execute([
+            'characterId' => $characterId,
+            'eventId' => $eventId,
+        ]);
+    }
+
+    public function deleteRegisterCharacter($characterId,$eventId) {
+        $query = 'DELETE FROM EventHasPerso
+        WHERE EventHasPerso.personnage_id = :characterId
+        AND EventHasPerso.event_id = :eventId';
+
+        $req = $this->getDb()->prepare($query);
+
+        $req->execute([
+            'characterId' => $characterId,
+            'eventId' => $eventId,
+        ]);
+    }
+
     public function update($id, $date, $horaire, $raid_id, $user_id)
     {
         $query = 'UPDATE EventTable set date = :date, horaire = :horaire, raid_id = :raid_id, user_id = :user_id WHERE id = :id';

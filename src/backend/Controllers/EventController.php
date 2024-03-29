@@ -46,11 +46,14 @@ class EventController
     $user_id = $_SESSION['user']->getId();
     $isOld = $this->eventRepository->findIfOld($eventId, $user_id);
     if (!empty($isOld)) {
+      $registeredCharacters = $this->eventRepository->findRegisteredCharacters($eventId, $user_id);
+      $noRegesteredCharacters = $this->eventRepository->findNoRegisteredCharacters($eventId, $user_id);
+      $_SESSION['registeredCharacters'] = $registeredCharacters;
+      $_SESSION['noRegesteredCharacters'] = $noRegesteredCharacters;
       echo $this->render('DetailsEvent');
     } else {
       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Events">';
     }
-    
   }
 
   public function indexEdit()
@@ -98,5 +101,17 @@ class EventController
     $eventId = $_SESSION['detailsEvent']['id'];
     $this->eventRepository->delete($eventId);
     echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events" . '">';
+  }
+
+  public function register($characterId) {
+    $eventId = $_SESSION['detailsEvent']['id'];
+    $this->eventRepository->registerCharacter($characterId, $eventId);
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id'] . '">';
+  }
+
+  public function deleteRegisterCharacter($characterId) {
+    $eventId = $_SESSION['detailsEvent']['id'];
+    $this->eventRepository->deleteRegisterCharacter($characterId, $eventId);
+    echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id'] . '">';
   }
 }
