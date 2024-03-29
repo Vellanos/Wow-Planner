@@ -5,18 +5,22 @@ require __DIR__ . "/Controllers/HomeController.php";
 require __DIR__ . "/Controllers/AuthController.php";
 require __DIR__ . "/Controllers/ProfileController.php";
 require __DIR__ . "/Controllers/PersonnageController.php";
+require __DIR__ . "/Controllers/EventController.php";
 
 // Crée des instances des contrôleurs.
 $homeController = new HomeController();
 $authController = new AuthController();
 $profileController = new ProfileController();
 $personnageController = new PersonnageController();
+$eventController = new EventController();
 
 // Récupère l'URI de la requête actuelle pour déterminer la route demandée par l'utilisateur.
 $route = $_SERVER['REQUEST_URI'];
 
 $uri = parse_url($route);
 $uri_path = $uri['path'];
+
+print_r($uri_path);
 
 switch ($route) {
     case URL_HOMEPAGE:
@@ -82,11 +86,15 @@ switch ($route) {
         $profileController->isLogged();
         $personnageController->deleteCharacter();
         break;
-    case str_contains($route, $uri_path):
+    case str_contains($route, $uri_path) && $uri_path === "/~david/brief_wow_planner/public/Profile/Characters/Details":
         $profileController->isLogged();
         $uri_query = $uri['query'];
         parse_str($uri_query, $output);
         $personnageController->indexDetails($output['id']);
+        break;
+    case URL_AUTH_Profile . "/Events":
+        $profileController->isLogged();
+        $eventController->index();
         break;
     default:
         $homeController->not_found_404();

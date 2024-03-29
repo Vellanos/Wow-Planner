@@ -32,7 +32,7 @@
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href="<?php echo URL_AUTH_Profile; ?>">BACK</a>
+        <a class="button-nav" href="<?php echo URL_AUTH_Profile; ?>">Back</a>
         <a class="button-nav" href="<?php echo URL_AUTH_Profile . "/Characters/Create"; ?>">New One</a>
     </div>
 

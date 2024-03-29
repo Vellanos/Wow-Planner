@@ -31,8 +31,8 @@
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>View All</a>
-        <a class="button-nav" href=<?php echo URL_HOMEPAGE ?>>New One</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events"?>>View All</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events/Create"?>>New One</a>
     </div>
     <h2 class="text-center section-title">My Characters</h2>
     <div class="card-wrapper">

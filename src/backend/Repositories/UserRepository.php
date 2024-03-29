@@ -33,15 +33,14 @@ class UserRepository extends Db
 
     public function findNextEvents($userId)
     {
-        $req = $this->getDb()->prepare("SELECT DATE_FORMAT(EventTable.date, '%d/%m/%Y') AS date,
-        DATE_FORMAT(EventTable.horaire, '%H:%i') AS horaire,
-        Raid.nom,
-        Raid.img
-        FROM EventTable
-        JOIN Raid ON EventTable.raid_id = Raid.id
-        WHERE EventTable.user_id = :id
-        ORDER BY EventTable.date, EventTable.horaire
-        LIMIT 3;");
+        $req = $this->getDb()->prepare("SELECT DATE_FORMAT(EventTable.date, '%d/%m/%Y') AS date, DATE_FORMAT(EventTable.horaire, '%H:%i') AS horaire, Raid.nom, Raid.img 
+        FROM EventTable 
+        JOIN Raid ON EventTable.raid_id = Raid.id 
+        WHERE EventTable.user_id = :id 
+        AND EventTable.date > CURDATE() 
+        ORDER BY EventTable.date, EventTable.horaire 
+        LIMIT 3;
+        ");
 
         $req->execute([
             'id' => $userId
@@ -66,17 +65,17 @@ class UserRepository extends Db
         return $req->fetchAll();
     }
 
-    public function update($id, $pseudo, $mail,$mdp, $guild)
+    public function update($id, $pseudo, $mail, $mdp, $guild)
     {
         $query = 'UPDATE User set pseudo = :pseudo, mail = :mail,mdp = :mdp, guild = :guild WHERE id = :id';
 
         $req = $this->getDb()->prepare($query);
 
         $req->execute([
-            'id'=> $id,
+            'id' => $id,
             'pseudo' => $pseudo,
             'mail' => $mail,
-            'mdp' =>$mdp,
+            'mdp' => $mdp,
             'guild' => $guild,
         ]);
     }
@@ -99,7 +98,7 @@ class UserRepository extends Db
         $req = $this->getDb()->prepare($query);
 
         $req->execute([
-            'id'=> $id,
+            'id' => $id,
         ]);
     }
 }
