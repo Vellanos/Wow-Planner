@@ -1,8 +1,4 @@
-    -- Associer des personnages aux événements
-    INSERT INTO User (pseudo, mail, mdp, guild) VALUES
-    ('Vellanos', 'davidbak38@gmail.com', '$2y$10$KpsZXf4RaWksrClxHlEJweaZSiGBvJs4ds6U5qR/XrDa3yj6aT80i','Odd Manner');
-
-   INSERT INTO Classe (name_class, name_spec, role, couleur, icone) VALUES
+INSERT INTO Classe (name_class, name_spec, role, couleur, icone) VALUES
 ('Warrior', 'Arms', 'DPS', 'C79C6E', 'war.png'),
 ('Warrior', 'Fury', 'DPS', 'C79C6E', 'war.png'),
 ('Warrior', 'Protection', 'Tank', 'C79C6E', 'war.png'),
@@ -56,37 +52,20 @@
 ('Evoker', 'Preservation', 'Heal', '33937F', 'evoker.png');
 
 
-    -- Insérer des versions de jeu
-    INSERT INTO GameVersion (nom) VALUES
-    ('Classic Era'),
-    ('Classic Wotlk'),
-    ('Retail');
+-- Insérer des versions de jeu
+INSERT INTO GameVersion (nom) VALUES
+('Classic Era'),
+('Classic Wotlk'),
+('Retail');
 
-    -- Insérer des raids
-    INSERT INTO Raid (nom, gameversion_id, img) VALUES
-    ('Molten Core', 1, 'MC.jpg'),
-    ('Zul Gurub', 1, 'ZG.png'),
-    ('Naxxramas', 1, 'Naxx.jpeg'),
-    ('Icecrown Citadel', 2, 'ICC.jpg'),
-    ('Ulduar', 2, 'Ulduar.png'),
-    ('Naxxramas', 2, 'Naxx.jpeg'),
-    ('Vault of the Incarnates', 3, 'Vault.png'),
-    ('Aberrus', 3, 'Aberrus.png'),
-    ('Amirdrassil', 3, 'Amirdrassil.png');
-
-    -- Insérer des personnages associés aux utilisateurs
-    INSERT INTO Personnage (nom, classe_id, user_id) VALUES
-    ('Vellanos', 8, 1),
-    ('Valalock', 9, 1);
-
-    -- Insérer des événements liés aux utilisateurs et aux raids
-    INSERT INTO EventTable (date, horaire, raid_id, user_id) VALUES
-    ('2024-04-01', '20:00:00', 9, 1),
-    ('2024-04-05', '21:00:00', 4, 1),
-    ('2024-04-25', '20:00:00', 9, 1),
-    ('2024-04-15', '21:00:00', 4, 1);
-
-    -- Associer des personnages aux événements
-    INSERT INTO EventHasPerso (personnage_id, event_id) VALUES
-    (1, 1),
-    (2, 2);
+-- Insérer des raids
+INSERT INTO Raid (nom, gameversion_id, img) VALUES
+('Molten Core', 1, 'MC.jpg'),
+('Zul Gurub', 1, 'ZG.png'),
+('Naxxramas', 1, 'Naxx.jpeg'),
+('Icecrown Citadel', 2, 'ICC.jpg'),
+('Ulduar', 2, 'Ulduar.png'),
+('Naxxramas', 2, 'Naxx.jpeg'),
+('Vault of the Incarnates', 3, 'Vault.png'),
+('Aberrus', 3, 'Aberrus.png'),
+('Amirdrassil', 3, 'Amirdrassil.png');
