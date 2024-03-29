@@ -41,15 +41,13 @@
         <h2 class="text-center section-title">Old Events</h2>
         <div class="card-wrapper">
             <?php foreach ($myOldEvents as $myOldEvent) : ?>
-                <a href="<?php echo URL_AUTH_Profile . "/Events/Details?id=" . $myOldEvent['id'] ?>" class="card-link">
-                    <div class="card card-data" style="background-image: url('../../src/assets/Raid/<?php echo $myOldEvent['img']; ?>');">
-                        <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
-                            <h3 class="card-title"><?php echo $myOldEvent['nom']; ?></h3>
-                            <p class="card-text"><?php echo $myOldEvent['date']; ?></p>
-                            <p class="card-text"><?php echo $myOldEvent['horaire']; ?></p>
-                        </div>
+                <div class="card card-data" style="background-image: url('../../src/assets/Raid/<?php echo $myOldEvent['img']; ?>');">
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
+                        <h3 class="card-title"><?php echo $myOldEvent['nom']; ?></h3>
+                        <p class="card-text"><?php echo $myOldEvent['date']; ?></p>
+                        <p class="card-text"><?php echo $myOldEvent['horaire']; ?></p>
                     </div>
-                </a>
+                </div>
             <?php endforeach; ?>
         </div>
         <div class="button-container">

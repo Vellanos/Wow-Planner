@@ -33,33 +33,29 @@ class EventRepository extends Db
         return $req->fetchAll();
     }
 
-    // public function findOneById($personnage_id)
-    // {
-    //     $req = $this->getDb()->prepare('SELECT Personnage.id, Personnage.nom, Classe.name_class, Classe.name_spec, Classe.role, Classe.icone 
-    //     FROM Personnage 
-    //     JOIN Classe ON Personnage.classe_id = Classe.id
-    //     WHERE Personnage.id = :personnage_id');
+    public function findAllRaids()
+    {
+        $req = $this->getDb()->prepare('SELECT * FROM Raid');
 
-    //     $req->execute([
-    //         'personnage_id' => $personnage_id
-    //     ]);
+        $req->execute();
 
-    //     return $req->fetch();
-    // }
+        return $req->fetchAll();
+    }
 
-    // public function create($nom, $classe_id, $user_id)
-    // {
-    //     $query = 'INSERT INTO Personnage (nom, classe_id, user_id) 
-    //     VALUES (:nom, :classe_id, :user_id)';
+    public function create($date, $horaire, $raid_id, $user_id)
+    {
+        $query = 'INSERT INTO EventTable (date, horaire, raid_id,user_id) 
+        VALUES (:date, :horaire, :raid_id, :user_id)';
 
-    //     $req = $this->getDb()->prepare($query);
+        $req = $this->getDb()->prepare($query);
 
-    //     $req->execute([
-    //         'nom' => $nom,
-    //         'classe_id' => $classe_id,
-    //         'user_id' => $user_id,
-    //     ]);
-    // }
+        $req->execute([
+            'date' => $date,
+            'horaire' => $horaire,
+            'raid_id' => $raid_id,
+            'user_id' => $user_id,
+        ]);
+    }
 
     // public function update($id, $nom, $classe_id, $user_id)
     // {

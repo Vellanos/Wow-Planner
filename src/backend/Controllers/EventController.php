@@ -9,14 +9,14 @@ require_once __DIR__ . '/../Repositories/EventRepository.php';
 class EventController
 {
   use Response;
-  private $eventRepositry;
+  private $eventRepository;
 //   private $userRepository;
 //   private $personnageRepository;
 //   private $classeRepository;
 
   public function __construct()
   {
-    $this->eventRepositry = new EventRepository();
+    $this->eventRepository = new EventRepository();
     // $this->userRepository = new UserRepository();
     // $this->personnageRepository = new PersonnageRepository();
     // $this->classeRepository = new ClasseRepository();
@@ -25,19 +25,19 @@ class EventController
   public function index()
   {
     $user_id = $_SESSION['user']->getId();
-    $myEvents = $this->eventRepositry->findMyEvents($user_id);
+    $myEvents = $this->eventRepository->findMyEvents($user_id);
     $_SESSION['myEvents'] = $myEvents;
-    $myOldEvents = $this->eventRepositry->findMyOldEvents($user_id);
+    $myOldEvents = $this->eventRepository->findMyOldEvents($user_id);
     $_SESSION['myOldEvents'] = $myOldEvents;
     echo $this->render('Events');
   }
 
-//   public function indexCreate()
-//   {
-//     $allClass = $this->classeRepository->findAll();
-//     $_SESSION['allClass'] = $allClass;
-//     echo $this->render('CreateCharacter');
-//   }
+  public function indexCreate()
+  {
+    $allRaids = $this->eventRepository->findAllRaids();
+    $_SESSION['allRaids'] = $allRaids;
+    echo $this->render('CreateEvent');
+  }
 
 //   public function indexDetails($characterId)
 //   {
@@ -53,21 +53,22 @@ class EventController
 //     echo $this->render('EditCharacter');
 //   }
 
-//   public function Create()
-//   {
-//     if (isset($_POST) && !empty($_POST)) {
-//       $nom = htmlspecialchars($_POST['nom']);
-//       $classe_id = htmlspecialchars($_POST['Classe']);
+  public function Create()
+  {
+    if (isset($_POST) && !empty($_POST)) {
+      $date = htmlspecialchars($_POST['date']);
+      $horaire = htmlspecialchars($_POST['horaire']);
+      $raid_id = htmlspecialchars($_POST['raid']);
 
-//       $user_id = $_SESSION['user']->getId();
+      $user_id = $_SESSION['user']->getId();
 
-//       $this->personnageRepository->create($nom, $classe_id, $user_id);
+      $this->eventRepository->create($date, $horaire, $raid_id, $user_id);
 
-//       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Characters">';
-//     } else {
-//       echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Characters/Create">';
-//     }
-//   }
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Events">';
+    } else {
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Events/Create">';
+    }
+  }
 
 //   public function editCharacter()
 //   {

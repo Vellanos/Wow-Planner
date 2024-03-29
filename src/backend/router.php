@@ -20,8 +20,6 @@ $route = $_SERVER['REQUEST_URI'];
 $uri = parse_url($route);
 $uri_path = $uri['path'];
 
-print_r($uri_path);
-
 switch ($route) {
     case URL_HOMEPAGE:
         $homeController->index();
@@ -95,6 +93,14 @@ switch ($route) {
     case URL_AUTH_Profile . "/Events":
         $profileController->isLogged();
         $eventController->index();
+        break;
+    case URL_AUTH_Profile . "/Events/Create":
+        $profileController->isLogged();
+        $eventController->indexCreate();
+        break;
+    case URL_AUTH_Profile . "/Events/Create/treatment":
+        $profileController->isLogged();
+        $eventController->Create();
         break;
     default:
         $homeController->not_found_404();
