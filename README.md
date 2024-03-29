@@ -30,7 +30,7 @@ Pour économiser du temps, vous êtes encouragés à utiliser les composants Boo
 - Supprimer son compte.
 
 ## Modalités pédagogiques
-Vous disposez de X demi-journées pour réaliser le projet, à rendre le xx/xx/2024. Travail en solo.
+Vous disposez de X demi-journées pour réaliser le projet, à rendre le 29/03/2024. Travail en solo.
 
 ## Modalités d'évaluation
 Évaluation individuelle.
