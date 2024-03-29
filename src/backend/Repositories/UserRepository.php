@@ -33,7 +33,7 @@ class UserRepository extends Db
 
     public function findNextEvents($userId)
     {
-        $req = $this->getDb()->prepare("SELECT DATE_FORMAT(EventTable.date, '%d/%m/%Y') AS date, DATE_FORMAT(EventTable.horaire, '%H:%i') AS horaire, Raid.nom, Raid.img 
+        $req = $this->getDb()->prepare("SELECT DATE_FORMAT(EventTable.date, '%d/%m/%Y') AS date, DATE_FORMAT(EventTable.horaire, '%H:%i') AS horaire, Raid.nom, Raid.img , EventTable.id
         FROM EventTable 
         JOIN Raid ON EventTable.raid_id = Raid.id 
         WHERE EventTable.user_id = :id 

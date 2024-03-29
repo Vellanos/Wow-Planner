@@ -21,18 +21,20 @@
             echo '<p class="text-center"> No event scheduled at the moment </p>';
         }
         foreach ($nextEvents as $event) : ?>
-            <div class="card card-data" style="background-image: url('../src/assets/Raid/<?php echo $event['img']; ?>');">
-                <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
-                    <h3 class="card-title"><?php echo $event['nom']; ?></h3>
-                    <p class="card-text"><?php echo $event['date']; ?></p>
-                    <p class="card-text"><?php echo $event['horaire']; ?></p>
+            <a href="<?php echo URL_AUTH_Profile . "/Events/Details?id=" . $event['id'] ?>" class="card-link">
+                <div class="card card-data" style="background-image: url('../src/assets/Raid/<?php echo $event['img']; ?>');">
+                    <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
+                        <h3 class="card-title"><?php echo $event['nom']; ?></h3>
+                        <p class="card-text"><?php echo $event['date']; ?></p>
+                        <p class="card-text"><?php echo $event['horaire']; ?></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         <?php endforeach; ?>
     </div>
     <div class="button-container">
-        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events"?>>View All</a>
-        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events/Create"?>>New One</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events" ?>>View All</a>
+        <a class="button-nav" href=<?php echo URL_AUTH_Profile . "/Events/Create" ?>>New One</a>
     </div>
     <h2 class="text-center section-title">My Characters</h2>
     <div class="card-wrapper">
@@ -42,7 +44,7 @@
             echo '<p class="text-center"> No character available at the moment. </p>';
         }
         foreach ($threeCharacters as $character) : ?>
-            <a href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $character['id']?>" class="card-link">
+            <a href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $character['id'] ?>" class="card-link">
                 <div class="card card-data" style="background-image: url('../src/assets/Class/<?php echo $character['icone']; ?>');">
                     <div class="card-body text-center d-flex flex-column justify-content-center align-item-center">
                         <h3 class="card-title"><?php echo $character['nom']; ?></h3>

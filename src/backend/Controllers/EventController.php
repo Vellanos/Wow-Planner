@@ -41,9 +41,16 @@ class EventController
 
   public function indexDetails($eventId)
   {
-    $eventId = $this->eventRepository->findOneById($eventId);
-    $_SESSION['detailsEvent'] = $eventId;
-    echo $this->render('DetailsEvent');
+    $event = $this->eventRepository->findOneById($eventId);
+    $_SESSION['detailsEvent'] = $event;
+    $user_id = $_SESSION['user']->getId();
+    $isOld = $this->eventRepository->findIfOld($eventId, $user_id);
+    if (!empty($isOld)) {
+      echo $this->render('DetailsEvent');
+    } else {
+      echo '<meta http-equiv="refresh" content="0;url=' . URL_AUTH_Profile . '/Events">';
+    }
+    
   }
 
   public function indexEdit()

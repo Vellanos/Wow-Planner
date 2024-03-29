@@ -71,6 +71,22 @@ class EventRepository extends Db
         return $req->fetch();
     }
 
+    public function findIfOld($eventId, $user_id)
+    {
+        $req = $this->getDb()->prepare('SELECT * 
+        FROM EventTable
+        WHERE EventTable.id = :eventId
+        AND EventTable.date >= CURDATE()
+        AND EventTable.user_id = :user_id');
+
+        $req->execute([
+            'eventId' => $eventId,
+            'user_id' => $user_id,
+        ]);
+
+        return $req->fetch();
+    }
+
     public function update($id, $date, $horaire, $raid_id, $user_id)
     {
         $query = 'UPDATE EventTable set date = :date, horaire = :horaire, raid_id = :raid_id, user_id = :user_id WHERE id = :id';

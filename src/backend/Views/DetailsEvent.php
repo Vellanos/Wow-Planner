@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h2 class="text-center">Edit Event</h2>
+    <h2 class="text-center"><?php echo $_SESSION['detailsEvent']['nom']; ?></h2>
 
     <div class="container">
         <?php if(isset($_SESSION['detailsEvent'])): ?>
