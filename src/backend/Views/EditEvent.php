@@ -29,17 +29,19 @@
                     <div class="form-group">
                         <label for="raid">Raid:</label>
                         <select class="form-control" id="raid" name="raid">
-                        <option value="<?php echo $_SESSION['detailsEvent']['raid_id']; ?>"><?php echo $_SESSION['detailsEvent']['nom']?></option>
-                        <?php foreach ($_SESSION['allRaids'] as $raid) : ?>
-                            <option value="<?php echo $raid['id']; ?>">
-                                <?php echo $raid['nom']?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+                            <option value="<?php echo $_SESSION['detailsEvent']['raid_id']; ?>"><?php echo $_SESSION['detailsEvent']['nom'] ?></option>
+                            <?php foreach ($_SESSION['allRaids'] as $raid) : ?>
+                                <option value="<?php echo $raid['id']; ?>">
+                                    <?php echo $raid['nom'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
-                    <div class="button-container">
-                        <button type="submit" class="button-gold">Edit</button>
-                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id']; ?>">Cancel</a>
+                    <div class="text-center d-flex justify-content-center align-items-center">
+                        <div class="button-container">
+                            <button type="submit" class="button-gold">Edit</button>
+                            <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Events/Details?id=" . $_SESSION['detailsEvent']['id']; ?>">Cancel</a>
+                        </div>
                     </div>
                 </form>
             </div>

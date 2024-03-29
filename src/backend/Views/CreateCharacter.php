@@ -34,10 +34,11 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-
-                    <div class="button-container">
-                        <button type="submit" class="button-gold">Create</button>
-                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters" ?>">Cancel</a>
+                    <div class="text-center d-flex justify-content-center align-items-center">
+                        <div class="button-container">
+                            <button type="submit" class="button-gold">Create</button>
+                            <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters" ?>">Cancel</a>
+                        </div>
                     </div>
                 </form>
 

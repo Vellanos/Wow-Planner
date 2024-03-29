@@ -28,11 +28,6 @@
             </div>
         <?php endif; ?>
     </div>
-    <div class="button-container">
-        <a class="button-gold" href="<?php echo URL_AUTH_Profile . "/Events"; ?>">Back</a>
-        <a class="button-gold" href="<?php echo URL_AUTH_Profile . "/Events/Edit"; ?>">Edit Event</a>
-        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Events/Delete"; ?>">Delete Event</a>
-    </div>
 
     <div class="container">
         <div class="row">
@@ -65,6 +60,11 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="button-container">
+        <a class="button-gold" href="<?php echo URL_AUTH_Profile . "/Events"; ?>">Back</a>
+        <a class="button-gold" href="<?php echo URL_AUTH_Profile . "/Events/Edit"; ?>">Edit Event</a>
+        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Events/Delete"; ?>">Delete Event</a>
     </div>
 
 

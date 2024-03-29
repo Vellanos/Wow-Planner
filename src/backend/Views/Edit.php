@@ -39,10 +39,11 @@
                         <label for="Confirmpassword">Confirm password:</label>
                         <input type="password" class="form-control" id="Confirmpassword" name="Confirmpassword">
                     </div>
-                    
-                    <div class="button-container">
-                        <button type="submit" class="button-gold">Edit</button>
-                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/User" ?>">Cancel</a>
+                    <div class="text-center d-flex justify-content-center align-items-center">
+                        <div class="button-container">
+                            <button type="submit" class="button-gold">Edit</button>
+                            <a class="button-red" href="<?php echo URL_AUTH_Profile . "/User" ?>">Cancel</a>
+                        </div>
                     </div>
                 </form>
 

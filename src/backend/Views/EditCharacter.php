@@ -33,9 +33,11 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="button-container">
-                        <button type="submit" class="button-gold">Edit</button>
-                        <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id']; ?>">Cancel</a>
+                    <div class="text-center d-flex justify-content-center align-items-center">
+                        <div class="button-container">
+                            <button type="submit" class="button-gold">Edit</button>
+                            <a class="button-red" href="<?php echo URL_AUTH_Profile . "/Characters/Details?id=" . $_SESSION['detailsCharacter']['id']; ?>">Cancel</a>
+                        </div>
                     </div>
                 </form>
 
