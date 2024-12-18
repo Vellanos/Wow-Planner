@@ -52,13 +52,11 @@ INSERT INTO Classe (name_class, name_spec, role, couleur, icone) VALUES
 ('Evoker', 'Preservation', 'Heal', '33937F', 'evoker.png');
 
 
--- Insérer des versions de jeu
 INSERT INTO GameVersion (nom) VALUES
 ('Classic Era'),
 ('Classic Wotlk'),
 ('Retail');
 
--- Insérer des raids
 INSERT INTO Raid (nom, gameversion_id, img) VALUES
 ('Molten Core', 1, 'MC.jpg'),
 ('Zul Gurub', 1, 'ZG.png'),
